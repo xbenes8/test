@@ -17,5 +17,5 @@
     ],
     "image_pull_secrets": [ "raisecret" ]
   },
-  "enable_stats": "true"
+  "enable_stats": true
 }
