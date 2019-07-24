@@ -1,0 +1,20 @@
+{
+  "pipeline": {
+    "name": "test2"
+  },
+  "input": {
+    "pfs": {
+      "glob": "/*",
+      "repo": "pipeline"
+    }
+  },
+  "transform": {
+    "image": "pachyderm/dummy",
+    "cmd": ["/bin/bash"],
+    "stdin": [
+      "echo 'some text' >> /pfs/out/myfile.txt",
+      "python -m toolcore.pipeline pfs/in/pipeline/example.json /pfs/out/output.html"
+    ],
+    "image_pull_secrets": [ "raisecret" ]
+  }
+}
