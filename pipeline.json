@@ -16,6 +16,5 @@
       "python -m toolcore.pipeline /pfs/in/pipeline/example.json /pfs/out/output.html"
     ],
     "image_pull_secrets": [ "raisecret" ]
-  },
-  "enable_stats": true
+  }
 }
