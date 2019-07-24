@@ -12,8 +12,7 @@
     "image": "raicontainerregistrydev.azurecr.io/pachyderm/dummy",
     "cmd": ["/bin/bash"],
     "stdin": [
-      "echo 'some text' >> /pfs/out/myfile.txt",
-      "python -m toolcore.pipeline pfs/in/pipeline/example.json /pfs/out/output.html"
+      "echo 'some text' >> /pfs/out/myfile.txt"
     ],
     "image_pull_secrets": [ "raisecret" ]
   }
