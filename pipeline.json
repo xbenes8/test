@@ -13,7 +13,7 @@
     "cmd": ["/bin/bash"],
     "stdin": [
       "echo 'some text' >> /pfs/out/myfile.txt",
-      "python -m toolcore.pipeline /pfs/in/pipeline/example.json /pfs/out/output.html"
+      "python -m toolcore.pipeline /pfs/pipeline/example.json /pfs/out/output.html"
     ],
     "image_pull_secrets": [ "raisecret" ]
   },
