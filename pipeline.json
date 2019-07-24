@@ -15,6 +15,15 @@
       "echo 'some text' >> /pfs/out/myfile.txt",
       "python -m toolcore.pipeline pfs/in/pipeline/example.json /pfs/out/output.html"
     ],
-    "image_pull_secrets": [ "raisecret" ]
+    "secrets": [ {
+      "name": "raisecret",
+      "key": "LOGIN",
+      "env_var": "LOGIN"
+
+    }, {
+      "name": "raisecret",
+      "key": "PASS",
+      "env_var": "PASS"
+    } ]
   }
 }
