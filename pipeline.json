@@ -9,21 +9,12 @@
     }
   },
   "transform": {
-    "image": "pachyderm/dummy",
+    "image": "raicontainerregistrydev.azurecr.io/pachyderm/dummy",
     "cmd": ["/bin/bash"],
     "stdin": [
       "echo 'some text' >> /pfs/out/myfile.txt",
       "python -m toolcore.pipeline pfs/in/pipeline/example.json /pfs/out/output.html"
     ],
-    "secrets": [ {
-      "name": "raisecret",
-      "key": "LOGIN",
-      "env_var": "LOGIN"
-
-    }, {
-      "name": "raisecret",
-      "key": "PASS",
-      "env_var": "PASS"
-    } ]
+    "image_pull_secrets": [ "raisecret" ]
   }
 }
