@@ -1,0 +1,73 @@
+{
+  "pipeline": "asset",
+  "steps": {
+    "dummy.missing.MissingValueDetector": {
+      "object": "dummy.missing.MissingValueDetector",
+      "inputs": {
+        "data": {
+          "type": "openml",
+          "id": 41162
+        }
+      }
+    },
+    "dummy.missing.MissingValueFlagPieChart": {
+      "object": "dummy.missing.MissingValueFlagPieChart",
+      "predecessors": {
+        "summary": "dummy.missing.DetectionCounter#1"
+      }
+    },
+    "dummy.missing.DetectionCellAggregator": {
+      "object": "dummy.missing.DetectionCellAggregator",
+      "predecessors": {
+        "dets": "dummy.missing.MissingValueDetector"
+      }
+    },
+    "dummy.missing.MissingValueImage": {
+      "object": "dummy.missing.MissingValueImage",
+      "predecessors": {
+        "cells": "dummy.missing.DetectionCellAggregator"
+      }
+    },
+    "dummy.missing.MissingValueMapChart": {
+      "object": "dummy.missing.MissingValueMapChart",
+      "predecessors": {
+        "cells": "dummy.missing.DetectionCellAggregator"
+      }
+    },
+    "dummy.missing.DetectionCounter#1": {
+      "object": "dummy.missing.DetectionCounter",
+      "parameters": {
+        "flag_threshold": 0
+      },
+      "predecessors": {
+        "dets": "dummy.missing.MissingValueDetector"
+      }
+    },
+    "dummy.missing.DetectionCounter#2": {
+      "object": "dummy.missing.DetectionCounter",
+      "predecessors": {
+        "dets": "dummy.missing.MissingValueDetector"
+      }
+    },
+    "dummy.missing.MissingValueReport": {
+      "object": "dummy.missing.MissingValueReport",
+      "predecessors": {
+        "summary": "dummy.missing.DetectionCounter#2"
+      }
+    },
+    "dummy.missing.MissingValueVariableBarChart": {
+      "object": "dummy.missing.MissingValueVariableBarChart",
+      "predecessors": {
+        "summary": "dummy.missing.DetectionCounter#2"
+      }
+    }
+  },
+  "endpoints": [
+    "dummy.missing.MissingValueFlagPieChart",
+    "dummy.missing.MissingValueImage",
+    "dummy.missing.MissingValueMapChart",
+    "dummy.missing.MissingValueReport",
+    "dummy.missing.MissingValueVariableBarChart"
+  ],
+  "name": "Missing value detection"
+}
